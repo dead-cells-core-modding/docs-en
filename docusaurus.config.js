@@ -12,7 +12,6 @@ import {themes as prismThemes} from 'prism-react-renderer';
 const config = {
   title: 'Dead Cells Core Modding文档',
   tagline: '',
-  favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -77,6 +76,7 @@ const config = {
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
+        additionalLanguages: ['csharp', 'bash']
       },
     }),
 };
