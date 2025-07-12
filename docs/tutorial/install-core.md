@@ -4,18 +4,11 @@ sidebar_position: 1
 
 # 安装 DCCM 核心
 
-:::info
-这个教程适合
-:::
-
 ## 先决条件
 
 - **.NET 9 运行时**
+  - 如果你打算开发用于 **DCCM** 的 **Mods** ， 请安装 **.NET 9 SDK**。
 - **Microsoft Visual C++ 可再发行组件包 (2015-2022)**
-
-:::info
-如果你打算开发用于 **DCCM** 的 **Mods** ， 请额外安装 **.NET 9 SDK**。
-:::
 
 ## 安装
 
