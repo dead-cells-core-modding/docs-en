@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# 介绍
+# Dead Cells Core Modding 介绍
 
 ![GitHub License](https://img.shields.io/github/license/dead-cells-core-modding/core)  [![Build And Test](https://github.com/dead-cells-core-modding/core/actions/workflows/build.yml/badge.svg?branch=dev)](https://github.com/dead-cells-core-modding/core/actions/workflows/build.yml)
 
