@@ -67,6 +67,11 @@ const config = {
             position: 'left',
             label: '教程',
           },
+          {
+            href: "https://github.com/dead-cells-core-modding/core", // GitHub仓库链接
+            label: "GitHub", // 显示文本
+            position: "right", // 放在导航栏右侧
+          },
         ],
       },
       prism: {

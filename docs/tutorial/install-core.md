@@ -22,6 +22,7 @@ sidebar_position: 1
 
 从文件管理器中打开游戏根目录，创造一个名为 `coremod` 的文件夹。将上一步获取的DCCM核心文件解压至文件夹中。
 
+:::tip
 完成以上操作后，目录结构应该像这样：
 
 ```txt
@@ -45,6 +46,8 @@ sidebar_position: 1
 ├─ deadcells_gl.exe
 └─ …
 ```
+
+:::
 
 :::tip
 如果你愿意，你可以把 `DeadCellsModding.exe` 文件复制到游戏根目录下。
