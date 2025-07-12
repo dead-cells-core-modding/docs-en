@@ -4,6 +4,10 @@ sidebar_position: 1
 
 # 安装 DCCM 核心
 
+:::info
+这个教程适合
+:::
+
 ## 先决条件
 
 - **.NET 9 运行时**

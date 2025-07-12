@@ -29,8 +29,8 @@ const config = {
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'dead-cells-core-modding', // Usually your GitHub org/user name.
   projectName: 'core', // Usually your repo name.
-
-  onBrokenLinks: 'throw',
+  trailingSlash: true,
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
   // Even if you don't use internationalization, you can use this field to set
@@ -87,39 +87,6 @@ const config = {
             label: '教程',
           },
         ],
-      },
-      footer: {
-        style: 'dark',
-        links: [
-          {
-            title: '文档',
-            items: [
-              {
-                label: '教程',
-                to: '/docs/intro',
-              },
-            ],
-          },
-          {
-            title: '社区',
-            items: [
-              {
-                label: 'Discord',
-                href: 'https://discord.gg/deadcells',
-              },
-            ],
-          },
-          {
-            title: '更多',
-            items: [
-              {
-                label: 'GitHub',
-                href: 'https://github.com/dead-cells-core-modding/core',
-              },
-            ],
-          },
-        ],
-        copyright: `Built with Docusaurus.`,
       },
       prism: {
         theme: prismThemes.github,
