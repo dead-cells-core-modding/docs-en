@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <!--模组类型-->
+    <ModType>mod</ModType>
+
+    <!--模组主类的FullName-->
+    <ModMain>FirstDeadCellsMod.FirstDeadCells</ModMain>
+
+    <!--在生成时自动安装Mod-->
+    <AutoInstallMod>true</AutoInstallMod>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DeadCellsCoreModding.MDK" Version="1.0.1" />
+  </ItemGroup>
+
+</Project>

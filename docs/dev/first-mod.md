@@ -6,13 +6,17 @@ sidebar_position: 2
 
 本教程将指导你创建一个简单的 Mod ，实现修改游戏内某个基础功能的功能。
 
+:::info
+本教程的 Mod 代码储存在 [Github](https://github.com/dead-cells-core-modding/docs-zh/blob/main/modproject/FirstDeadCellsMod) 上。
+:::
+
 ## 创建 Mod 项目
 
 - 打开命令行工具
 - 创建一个新的库项目：
 
 ```bash
-dotnet new classlib -n FirstDeadCellsMod -f 9.0
+dotnet new classlib -n FirstDeadCellsMod -f net9.0
 ```
 
 - 进入项目目录：
@@ -68,6 +72,9 @@ namespace FirstDeadCellsMod
 
     <!--模组主类的FullName-->
     <ModMain>FirstDeadCellsMod.FirstDeadCells</ModMain>
+
+    <!--在生成时自动安装Mod-->
+    <!--<AutoInstallMod>true</AutoInstallMod>-->
 </PropertyGroup>
 
 ```
@@ -92,7 +99,7 @@ dotnet build
 你应该能看到类似这样的日志条目：
 
 ```text
-[20:09:48 INF][MyFirstMod] 你好，世界
+[13:47:52 INF][FirstDeadCells] 你好，世界
 ```
 
 :::

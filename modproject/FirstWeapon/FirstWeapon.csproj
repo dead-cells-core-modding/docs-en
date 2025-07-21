@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>FirstWeaponMod</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <!--模组类型-->
+    <ModType>mod</ModType>
+
+    <!--模组主类的FullName-->
+    <ModMain>FirstWeaponMod.FirstWeapon</ModMain>
+
+    <!--在生成时自动安装Mod-->
+    <AutoInstallMod>true</AutoInstallMod>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!--将res.pak文件复制到bin\Debug\net9.0目录-->
+    <None Update="res.pak">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+
+    <!--将res.pak文件复制到最终的输出目录-->
+    <OutputFiles Include="res.pak" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DeadCellsCoreModding.MDK" Version="1.0.1" />
+  </ItemGroup>
+
+</Project>
