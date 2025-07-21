@@ -197,4 +197,4 @@ void IOnHeroUpdate.OnHeroUpdate(double dt)
 
 ## 效果演示
 
-[视频](https://github.com/dead-cells-core-modding/docs-zh/blob/main/docs/dev/videos/Dead%20Cells%20with%20Core%20Modding%202025-07-21%2015-30-36.mp4)
+<video controls src="https://github.com/dead-cells-core-modding/docs-zh/blob/main/docs/dev/videos/Dead%20Cells%20with%20Core%20Modding%202025-07-21%2015-30-36.mp4" title="https://github.com/dead-cells-core-modding/docs-zh/blob/main/docs/dev/videos/Dead%20Cells%20with%20Core%20Modding%202025-07-21%2015-30-36.mp4"></video>
