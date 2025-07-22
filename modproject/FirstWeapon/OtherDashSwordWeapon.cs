@@ -1,6 +1,8 @@
-﻿using dc.en;
+﻿using dc;
+using dc.en;
 using dc.tool;
 using dc.tool.weap;
+using HaxeProxy.Runtime;
 using ModCore.Storage;
 using System;
 using System.Collections.Generic;
@@ -38,7 +40,12 @@ namespace FirstWeaponMod
         {
             base.fixedUpdate();
             bool noStats = false;
-            this.owner.addCells(10, new HaxeProxy.Runtime.Ref<bool>(ref noStats));
+            owner.addCells(10, new Ref<bool>(ref noStats));
+        }
+
+        public override bool onExecute()
+        {
+            return base.onExecute();
         }
     }
 }

@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# 创造第一个武器
+# 创造第一把武器
 
 本教程将指导你创建一个简单的 Mod ，实现修改游戏内某个基础功能的功能。
 
@@ -10,14 +10,6 @@ sidebar_position: 3
 本教程的 Mod 代码储存在 [Github](https://github.com/dead-cells-core-modding/docs-zh/blob/main/modproject/FirstWeapon) 上。
 
 本章节大部分代码来自 **Frostbite**。感谢 Frostbite 对本教程的帮助。
-:::
-
-:::warning
-本教程假设你拥有以下技能：
-
-- C# 编程基础
-- 死亡细胞基础 Mod 制作 ([教程](https://www.bilibili.com/opus/681293864647000128))
-
 :::
 
 ## 创建 Mod 项目

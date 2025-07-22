@@ -6,6 +6,23 @@ sidebar_position: 2
 
 本教程将指导你创建一个简单的 Mod ，实现修改游戏内某个基础功能的功能。
 
+:::warning
+
+虽然编写 **Mod** 时使用 **C#** ，但请记住 **Dead Cells** 使用 **Haxe** 编写并运行在 **HashLink 虚拟机**上，而不是 **.NET 虚拟机**。
+
+本教程假设你拥有以下技能：
+
+- C# 编程基础
+- Dead Cells 基础 Mod 制作 ([教程](https://www.bilibili.com/opus/681293864647000128))
+
+:::
+
+:::tip
+
+在开始之前，建议阅读 [wiki](https://github.com/HaxeFoundation/hashlink/wiki) 了解 **HashLink 虚拟机** 的基本信息。
+
+:::
+
 :::info
 本教程的 Mod 代码储存在 [Github](https://github.com/dead-cells-core-modding/docs-zh/blob/main/modproject/FirstDeadCellsMod) 上。
 :::
@@ -111,10 +128,11 @@ dotnet build
 - 确保已安装 .NET 9 SDK
 - 检查项目引用的 NuGet 包是否可用
 - 尝试清理解决方案后重新构建：
-'''powershell
+
+```powershell
 dotnet clean
 dotnet build
-'''
+```
 
 ### Q2: Mod 不加载
 
