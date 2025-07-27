@@ -2,70 +2,70 @@
 sidebar_position: 3
 ---
 
-# 创造第一把武器
+# Creating Your First Weapon
 
-本教程将指导你创建一个简单的 Mod ，实现修改游戏内某个基础功能的功能。
+This tutorial will guide you through creating a simple mod that modifies a basic in-game function.
 
 :::info
-本教程的 Mod 代码储存在 [Github](https://github.com/dead-cells-core-modding/docs-zh/blob/main/modproject/FirstWeapon) 上。
+The mod code for this tutorial is stored on [Github](https://github.com/dead-cells-core-modding/docs-zh/blob/main/modproject/FirstWeapon).
 
-本章节大部分代码来自 **Frostbite**。感谢 Frostbite 对本教程的帮助。
+Most of the code in this chapter comes from **Frostbite**. Thanks to Frostbite for their help with this tutorial.
 :::
 
-## 创建 Mod 项目
+## Creating the Mod Project
 
-按照[教程](./first-mod.md)创造名为 **FirstWeapon** 的 Mod 项目。
+Follow the [tutorial](./first-mod.md) to create a new mod project named **FirstWeapon**.
 
-## 制作 res.pak
+## Making res.pak
 
-按照[教程](https://www.bilibili.com/opus/681993184170999904)制作一个**diff pak**。**CDB**中应包括：
+Follow the [tutorial](https://www.bilibili.com/opus/681993184170999904) to create a **diff pak**. The **CDB** should include:
 
-- 一个名为 **OtherDashSword** 新武器以及它对应的 **item**
+- A new weapon named **OtherDashSword** and its corresponding **item**.
 
 :::tip
-**OtherDashSword** 可以换为其他名字。
+**OtherDashSword** can be replaced with another name.
 :::
 
-一个现成的 [res.pak](https://github.com/dead-cells-core-modding/docs-zh/blob/main/modproject/FirstWeapon/res.pak)。
+A pre-made [res.pak](https://github.com/dead-cells-core-modding/docs-zh/blob/main/modproject/FirstWeapon/res.pak) is available.
 
-### 复制 res.pak
+### Copying res.pak
 
-- 将上一步获得的**res.pak**复制到项目根目录下。
-- 修改**FirstWeapon.csproj**，添加以下内容
+- Copy the **res.pak** file obtained in the previous step to the project's root directory.
+- Modify **FirstWeapon.csproj** by adding the following content:
 
 ```xml
 <ItemGroup>
-    <!--将res.pak文件复制到bin\Debug\net9.0目录-->
+    <!--Copies the res.pak file to the bin\Debug\net9.0 directory-->
     <None Update="res.pak">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
 
-    <!--将res.pak文件复制到最终的输出目录-->
+    <!--Copies the res.pak file to the final output directory-->
     <OutputFiles Include="res.pak" />
 </ItemGroup>
 ```
 
-## 编写代码
+## Writing the Code
 
-### 加载 res.pak
+### Loading res.pak
 
-- 修改`FirstWeaponMod.FirstWeapon`类，使其实现`IOnGameEndInit`接口。
+- Modify the `FirstWeaponMod.FirstWeapon` class to implement the `IOnGameEndInit` interface.
 
 ```csharp
-//加载res.pak并刷新CDB
+// Load res.pak and refresh the CDB
 void IOnGameEndInit.OnGameEndInit()
 {
-    var res = Info.ModRoot!.GetFilePath("res.pak"); //获取 Mod 根目录 下的 res.pak 文件的绝对路径
-    FsPak.Instance.FileSystem.loadPak(res.AsHaxeString()); //加载 res.pak
-    var json =  CDBManager.Class.instance.getAlteredCDB(); //获取合并后的 CDB Json
-    Data.Class.loadJson( //加载合并后的 CDB Json
+    var res = Info.ModRoot!.GetFilePath("res.pak"); // Get the absolute path of the res.pak file in the mod's root directory
+    FsPak.Instance.FileSystem.loadPak(res.AsHaxeString()); // Load res.pak
+    var json =  CDBManager.Class.instance.getAlteredCDB(); // Get the merged CDB JSON
+    Data.Class.loadJson( // Load the merged CDB JSON
        json, 
        default);  
 }
 ```
 
 :::info
-成功加载 **res.pak** 后，你可以在日志中看到类似的内容：
+After successfully loading **res.pak**, you should see something similar to this in the log:
 
 ```text
 [14:30:13 INF][FsPak] Loading pak from C:\SteamLibrary\steamapps\common\Dead Cells\coremod\mods\FirstWeapon\res.pak
@@ -74,43 +74,43 @@ void IOnGameEndInit.OnGameEndInit()
 :::
 
 :::info
-`IOnGameExit`接口和`IOnGameEndInit`接口都是**事件系统**的一部分。它们会在对应的**事件**触发时被调用。
+The `IOnGameExit` and `IOnGameEndInit` interfaces are part of the **event system**. They are called when their corresponding **events** are triggered.
 
-- `IOnGameExit` 将会在游戏退出前调用。
-- `OnGameEndInit` 将会在游戏初始化后被调用。
-- `IOnHeroUpdate` 将会在游戏内每帧调用一次。
+- `IOnGameExit` will be called before the game exits.
+- `OnGameEndInit` will be called after the game has been initialized.
+- `IOnHeroUpdate` will be called once every frame within the game.
 
 :::
 
-### 创造武器类
+### Creating the Weapon Class
 
-创造一个 `FirstWeaponMod.OtherDashSwordWeapon` 类，使其继承于`DashSword`类并实现`IHxbitSerializable<object>`接口。
+Create a new class `FirstWeaponMod.OtherDashSwordWeapon` that inherits from the `DashSword` class and implements the `IHxbitSerializable<object>` interface.
 
 ```csharp
-//武器类
+// Weapon class
 internal class OtherDashSwordWeapon : 
-    DashSword, //基类
+    DashSword, // Base class
     IHxbitSerializable<object>
 {
 
-    //默认构造方法 
+    // Default constructor
     public OtherDashSwordWeapon(Hero o, InventItem i) : base(o, i)
     {
     }
 
-    //留空
+    // Leave empty
     object IHxbitSerializable<object>.GetData()
     {
         return new(); //TODO
     }
 
-    //留空
+    // Leave empty
     void IHxbitSerializable<object>.SetData(object data)
     {
         //TODO
     }
 
-     // 测试效果——每帧增加10细胞
+     // Test effect - add 10 cells per frame
     public override void fixedUpdate()
     {
         base.fixedUpdate();
@@ -121,72 +121,72 @@ internal class OtherDashSwordWeapon :
 ```
 
 :::info
-`IHxbitSerializable<>`接口用于保存游戏对象的数据。
+The `IHxbitSerializable<>` interface is used to save game object data.
 
-为了简单起见，武器类并没有直接继承于 `Weapon`类（所有武器的基类），而是继承于`DashSword`类。
+For simplicity, this weapon class inherits from the `DashSword` class instead of directly from the `Weapon` class (the base class for all weapons).
 :::
 
-### 注册新武器
+### Registering the New Weapon
 
-仅仅将新武器的信息添加到 **CDB** 中是仍然是不够的。
+Simply adding the new weapon's information to the **CDB** is not enough.
 
-为了让游戏可以识别新武器，还需要修改`FirstWeaponMod.FirstWeapon`类，添加以下内容：
+To make the game recognize the new weapon, you also need to modify the `FirstWeaponMod.FirstWeapon` class by adding the following:
 
 ```csharp
  public override void Initialize()
  {
-     Logger.Information("你好，世界");
+     Logger.Information("Hello, World");
 
-     Hook__Weapon.create += Hook__Weapon_create; //挂钩 $Weapon.create
+     Hook__Weapon.create += Hook__Weapon_create; // Hook $Weapon.create
  }
 
  private Weapon Hook__Weapon_create(Hook__Weapon.orig_create orig, dc.en.Hero o, InventItem i)
  {
-     var id = i._itemData.id.ToString(); //获取武器id
+     var id = i._itemData.id.ToString(); // Get the weapon ID
      if(id == "OtherDashSword")
      {
-         return new OtherDashSwordWeapon(o, i); //返回自定义的武器
+         return new OtherDashSwordWeapon(o, i); // Return the custom weapon
      }
      else
      {
-         return orig(o, i); //调用原始方法
+         return orig(o, i); // Call the original method
      }
  }
 ```
 
-### 获取新武器
+### Getting the New Weapon
 
-很明显，现在无法拿到新武器，因为目前它没有任何获取途径。
+Obviously, you can't get the new weapon yet because it has no acquisition method.
 
-可以通过以下的代码创造新武器对应的物品：
+You can create the item corresponding to the new weapon with the following code:
 
 ```csharp
-//生成物品
+// Spawns the item
 private void SpawnWeapon(Hero hero)
 {
     InventItem testItem = new InventItem(new InventItemKind.Weapon("OtherDashSword".AsHaxeString()));
     bool test_boolean = false;
     ItemDrop itemDrop = new ItemDrop(hero._level, hero.cx, hero.cy, testItem, true, new HaxeProxy.Runtime.Ref<bool>(ref test_boolean));
-    // 生成掉落物后必须调用init方法，否则游戏会崩溃
+    // The init method must be called after creating the drop, otherwise the game will crash
     itemDrop.init();
     itemDrop.onDropAsLoot();
-    itemDrop.dx = hero.dx; // 不知道为什么要有这一步，但是原版代码这么写的
+    itemDrop.dx = hero.dx; // Not sure why this step is necessary, but it's in the original code
 }
 ```
 
-为了简单起见，使用以下代码使得在**游戏中**可以通过按下**反斜杠**来获取**新武器**
+For simplicity, use the following code to allow obtaining the **new weapon** by pressing the **backslash key** **in-game**.
 
 ```csharp
-//实现IOnHeroUpdate接口
+// Implement the IOnHeroUpdate interface
 void IOnHeroUpdate.OnHeroUpdate(double dt)
 {
-    if(Key.Class.isPressed(0xDC /**反斜杠键码**/))
+    if(Key.Class.isPressed(0xDC /**Backslash key code**/))
     {
         SpawnWeapon(Game.Instance.HeroInstance!);
     }
 }
 ```
 
-## 效果演示
+## Effect Demonstration
 
-[视频](https://github.com/dead-cells-core-modding/docs-zh/blob/main/docs/dev/videos/Dead%20Cells%20with%20Core%20Modding%202025-07-21%2015-30-36.mp4)
+[Video](https://github.com/dead-cells-core-modding/docs-zh/blob/main/docs/dev/videos/Dead%20Cells%20with%20Core%20Modding%202025-07-21%2015-30-36.mp4)
