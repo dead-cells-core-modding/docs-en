@@ -91,7 +91,7 @@ namespace FirstDeadCellsMod
     <ModMain>FirstDeadCellsMod.FirstDeadCells</ModMain>
 
     <!--在生成时自动安装Mod-->
-    <!--<AutoInstallMod>true</AutoInstallMod>-->
+    <!--<AutoInstallMod Condition="'$(Configuration)' == 'Debug'">true</AutoInstallMod>-->
 </PropertyGroup>
 
 ```
