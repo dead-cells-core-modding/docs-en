@@ -2,23 +2,23 @@
 sidebar_position: 2
 ---
 
-# 安装 Mods
+# Installing Mods
 
-本教程将指导你如何将 Mods 安装到游戏中
+This tutorial will guide you on how to install mods into the game.
 
-本文以 **SampleHook** Mod为例，介绍 **Mods** 的安装方法
+This article uses the **SampleHook** mod as an example to demonstrate how to install **mods**.
 
 :::info
-本文所提到的 **Mods 目录** 的路径为`<DeadCellsGameRoot>/coremod/mods`
+The **Mods Directory** mentioned in this article is located at `<DeadCellsGameRoot>/coremod/mods`.
 :::
 
-## 获取 Mods
+## Getting Mods
 
-你可以从任何你喜欢的渠道获取 **Mods**
+You can get **mods** from any source you prefer.
 
 :::tip
-对于任何一个**有效**的 Mod ，其根目录下都应该存在`modinfo.json`
-例如
+For any **valid** mod, a `modinfo.json` file should exist in its root directory.
+For example:
 
 ```txt
 SampleHook
@@ -29,15 +29,15 @@ SampleHook
 
 :::
 
-## 复制 Mods 文件
+## Copying the Mod Files
 
-将 Mod 文件夹复制到 **Mods 目录** 下
+Copy the mod folder into the Mods Directory.
 
 :::tip
 
-完成上述操作后，目录结构应该类似于：
+After completing the above steps, the directory structure should look something like this:
 
-```txt
+```
 <DeadCellsGameRoot>
 ├─ coremod
 │  ├─ mods
@@ -51,19 +51,22 @@ SampleHook
 
 :::
 
-## 常见问题
+## Common Issues
 
-### Q1: Mod 无法加载
+### Q1: Mod fails to load
 
-- 确认 `modinfo.json` 文件格式正确（可使用 JSON 验证工具）
-- 查看游戏日志中的错误信息
+Confirm that the modinfo.json file format is correct (you can use a JSON validation tool).
 
-### Q2: Mod 加载后无效果
+Check the game log for error messages.
 
-- 查看游戏日志是否有警告或错误
+### Q2: Mod has no effect after loading
 
-### Q3: 多个 Mod 冲突
+Check the game log for any warnings or errors.
 
-- 检查 Mod 依赖关系
-- 尝试逐个启用 Mod 进行排查
-- 查看游戏日志是否有警告或错误
+### Q3: Multiple mods are conflicting
+
+Check the mod dependencies.
+
+Try enabling mods one by one to troubleshoot.
+
+Check the game log for any warnings or errors.

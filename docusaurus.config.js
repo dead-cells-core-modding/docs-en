@@ -10,7 +10,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Dead Cells Core Modding文档',
+  title: 'Dead Cells Core Modding Docs',
   tagline: '',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -22,7 +22,7 @@ const config = {
   url: 'https://dead-cells-core-modding.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/docs-zh/',
+  baseUrl: '/docs-en/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -36,8 +36,8 @@ const config = {
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'zh',
-    locales: ['zh'],
+    defaultLocale: 'en',
+    locales: ['en'],
   },
 
   presets: [
@@ -58,18 +58,18 @@ const config = {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'Dead Cells Core Modding文档',
+        title: 'Dead Cells Core Modding Docs',
         items: [
           {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: '教程',
+            label: 'Docs',
           },
           {
-            href: "https://github.com/dead-cells-core-modding/core", // GitHub仓库链接
-            label: "GitHub", // 显示文本
-            position: "right", // 放在导航栏右侧
+            href: "https://github.com/dead-cells-core-modding/core",
+            label: "GitHub",
+            position: "right",
           },
         ],
       },
