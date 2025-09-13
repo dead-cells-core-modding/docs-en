@@ -89,9 +89,8 @@ Edit the project file, `FirstDeadCellsMod.csproj`, and add the following content
 
     <!--The FullName of the mod's main class-->
     <ModMain>FirstDeadCellsMod.FirstDeadCells</ModMain>
-
     <!--Automatically install the mod on build-->
-    <!--<AutoInstallMod>true</AutoInstallMod>-->
+    <!--<AutoInstallMod Condition="'$(Configuration)' == 'Debug'">true</AutoInstallMod>-->
 </PropertyGroup>
 
 ```
